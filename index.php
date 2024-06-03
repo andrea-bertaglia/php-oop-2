@@ -32,7 +32,6 @@ $product3->category = new Category('gatto');
 $product3->setExpiration_date('2024-01-01');
 var_dump($product3);
 
-
 // prodotto n.4 di tipo gioco
 $product4 = new Toy('Osso giocattolo', 'Acme', 'plastica', 'www');
 $product4->setPrice(29.90);
@@ -42,7 +41,14 @@ $product4->category = new Category('cane');
 
 var_dump($product4);
 
+// prodotto n.5 di tipo cuccia
+$product5 = new Toy('Cuscino per gatti', 'Acme', 'cotone', 'SI', 'www');
+$product5->setPrice(29.90);
+$product5->setDiscount(20);
+$product5->setVat_percentage(22);
+$product5->category = new Category('gatto');
 
+var_dump($product5);
 
 
 
