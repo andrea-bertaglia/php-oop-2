@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/models/product.php";
 require_once __DIR__ . "/models/food.php";
+require_once __DIR__ . "/models/toy.php";
 
 // prodotto n.1 generico
 $product1 = new Product('Crocchette di manzo (Conf. 10Kg)', 'Monge');
@@ -30,6 +31,21 @@ $product3->setVat_percentage(22);
 $product3->category = new Category('gatto');
 $product3->setExpiration_date('2024-01-01');
 var_dump($product3);
+
+
+// prodotto n.4 di tipo gioco
+$product4 = new Toy('Osso giocattolo', 'Acme', 'plastica', 'www');
+$product4->setPrice(29.90);
+$product4->setDiscount(20);
+$product4->setVat_percentage(22);
+$product4->category = new Category('cane');
+
+var_dump($product4);
+
+
+
+
+
 
 // $catalog = [
 //     [
