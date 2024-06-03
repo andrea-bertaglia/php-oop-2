@@ -2,7 +2,7 @@
 
 class Category
 {
-    public string $category;
+    private string $category;
 
     public function __construct($category)
     {
