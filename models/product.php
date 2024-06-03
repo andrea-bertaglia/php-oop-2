@@ -1,16 +1,14 @@
 <?php
 
-require_once __DIR__ . "/category.php";
 class Product
 {
     private string $name;
     private string $brand;
-    private float $price;
-    private float $discount;
-    private float $vat_percentage;
-    public Category $category;
+    private int $price;
+    private int $discount;
+    private int $vat_percentage;
 
-    public function __construct(string $name, string $brand)
+    public function __construct($name, $brand)
     {
         $this->name = $name;
         $this->brand = $brand;
@@ -47,7 +45,7 @@ class Product
      */
     public function setPrice($price)
     {
-        if (!$price > 0) {
+        if ($price > 0) {
             throw new Exception("Prezzo negativo non valido");
         }
         $this->price = $price;
