@@ -50,7 +50,7 @@ class Food extends Product
     {
         // estraggo l'anno della data
         $year = intval($expiration_date[0] . $expiration_date[1] . $expiration_date[2] . $expiration_date[3]);
-        var_dump($year);
+        // var_dump($year);
 
         if ($expiration_date < 2024) {
             throw new Exception('Prodotto scaduto');
