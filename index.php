@@ -1,16 +1,22 @@
 <?php
 
+// collego le classi
 require_once __DIR__ . "/models/product.php";
 require_once __DIR__ . "/models/food.php";
 require_once __DIR__ . "/models/toy.php";
 require_once __DIR__ . "/models/kennel.php";
+
+// creo le categorie cane/gatto
+$dog_category = new Category('cane');
+$cat_category = new Category('gatto');
+
 
 // prodotto n.1 generico
 $product1 = new Product('Crocchette di manzo (Conf. 10Kg)', 'Monge');
 $product1->setPrice(49.90);
 $product1->setDiscount(10);
 $product1->setVat_percentage(22);
-$product1->category = new Category('cane');
+$product1->category = $dog_category;
 // var_dump($product1);
 
 // prodotto n.2 di tipo food
@@ -18,7 +24,7 @@ $product2 = new Food('Crocchette di manzo', 'Monge', 'secco', 'sacchetto', 'http
 $product2->setPrice(49.90);
 $product2->setDiscount(10);
 $product2->setVat_percentage(22);
-$product2->category = new Category('cane');
+$product2->category = $dog_category;
 $product2->setExpiration_date('2024-01-01');
 // var_dump($product2);
 
@@ -27,7 +33,7 @@ $product3 = new Food('Straccetti di pollo', 'Almonature', 'umido', 'vaschetta', 
 $product3->setPrice(19.90);
 $product3->setDiscount(10);
 $product3->setVat_percentage(22);
-$product3->category = new Category('gatto');
+$product3->category = $cat_category;
 $product3->setExpiration_date('2024-01-01');
 // var_dump($product3);
 
@@ -36,7 +42,7 @@ $product4 = new Toy('Osso giocattolo', 'Acme', 'plastica', 'https://www.artelegn
 $product4->setPrice(29.90);
 $product4->setDiscount(20);
 $product4->setVat_percentage(22);
-$product4->category = new Category('cane');
+$product4->category = $dog_category;
 // var_dump($product4);
 
 // prodotto n.5 di tipo cuccia
@@ -44,7 +50,7 @@ $product5 = new Kennel('Cuscino per gatti', 'Acme', 'cotone', 'SI', 'https://m.m
 $product5->setPrice(29.90);
 $product5->setDiscount(20);
 $product5->setVat_percentage(22);
-$product5->category = new Category('gatto');
+$product5->category = $cat_category;
 // var_dump($product5);
 
 
@@ -54,6 +60,7 @@ $catalog = [
         'name' => $product2->getName(),
         'brand' => $product2->getBrand(),
         'category' => $product2->category->getCategory(),
+        'icon' => $product2->category->getIcon(),
         'price' => $product2->getPrice(),
         'discount' => $product2->getDiscount(),
         'vat' => $product2->getVat_percentage(),
@@ -66,6 +73,7 @@ $catalog = [
         'name' => $product3->getName(),
         'brand' => $product3->getBrand(),
         'category' => $product3->category->getCategory(),
+        'icon' => $product3->category->getIcon(),
         'price' => $product3->getPrice(),
         'discount' => $product3->getDiscount(),
         'vat' => $product3->getVat_percentage(),
@@ -78,6 +86,7 @@ $catalog = [
         'name' => $product4->getName(),
         'brand' => $product4->getBrand(),
         'category' => $product4->category->getCategory(),
+        'icon' => $product4->category->getIcon(),
         'price' => $product4->getPrice(),
         'discount' => $product4->getDiscount(),
         'vat' => $product4->getVat_percentage(),
@@ -88,6 +97,7 @@ $catalog = [
         'name' => $product5->getName(),
         'brand' => $product5->getBrand(),
         'category' => $product5->category->getCategory(),
+        'icon' => $product5->category->getIcon(),
         'price' => $product5->getPrice(),
         'discount' => $product5->getDiscount(),
         'vat' => $product5->getVat_percentage(),
@@ -108,6 +118,9 @@ $catalog = [
 
     <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
+    <!-- Fontawesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="bg-dark pb-5">
@@ -129,7 +142,7 @@ $catalog = [
                                 <p class="card-text"><?php echo $item['brand'] ?></p>
                             </div>
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Categoria: <span class="fw-bold"><?php echo $item['category'] ?></span></li>
+                                <li class="list-group-item">Categoria: <span class="fw-bold"><?php echo $item['category'] ?></span><span class="ms-2 text-primary"><i class="<?php echo $item['icon'] ?>"></i></span></li>
                                 <li class="list-group-item">Prezzo: <span class="fw-bold"><?php echo $item['price'] ?>0</span> €</li>
                                 <li class="list-group-item">Sconto: <span class="fw-bold"><?php echo $item['discount'] ?></span> %</li>
                                 <li class="list-group-item">IVA: <span class="fw-bold"><?php echo $item['vat'] ?></span>%</li>
