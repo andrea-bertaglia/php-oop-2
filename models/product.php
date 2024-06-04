@@ -1,8 +1,11 @@
 <?php
 
 require_once __DIR__ . "/category.php";
+require_once __DIR__ . "/../traits/uppercaseable.php";
 class Product
 {
+    use Uppercaseable;
+
     private string $name;
     private string $brand;
     private float $price;

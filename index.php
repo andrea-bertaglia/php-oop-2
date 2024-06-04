@@ -81,7 +81,7 @@ $product5->category = $cat_category;
 $catalog = [
     [
         'name' => $product2->getName(),
-        'brand' => $product2->getBrand(),
+        'brand' => $product2->getUppercase($product2->getBrand()),
         'category' => $product2->category->getCategory(),
         'icon' => $product2->category->getIcon(),
         'price' => $product2->getPrice(),
@@ -94,7 +94,7 @@ $catalog = [
     ],
     [
         'name' => $product3->getName(),
-        'brand' => $product3->getBrand(),
+        'brand' => $product3->getUppercase($product3->getBrand()),
         'category' => $product3->category->getCategory(),
         'icon' => $product3->category->getIcon(),
         'price' => $product3->getPrice(),
@@ -107,7 +107,7 @@ $catalog = [
     ],
     [
         'name' => $product4->getName(),
-        'brand' => $product4->getBrand(),
+        'brand' => $product4->getUppercase($product4->getBrand()),
         'category' => $product4->category->getCategory(),
         'icon' => $product4->category->getIcon(),
         'price' => $product4->getPrice(),
@@ -118,7 +118,7 @@ $catalog = [
     ],
     [
         'name' => $product5->getName(),
-        'brand' => $product5->getBrand(),
+        'brand' => $product5->getUppercase($product5->getBrand()),
         'category' => $product5->category->getCategory(),
         'icon' => $product5->category->getIcon(),
         'price' => $product5->getPrice(),
